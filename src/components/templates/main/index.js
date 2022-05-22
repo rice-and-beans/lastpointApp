@@ -1,9 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-export class MainTemplate extends Component{
+import { Header } from '../../organisms/header'
+
+export class MainTemplate extends Component {
   render() {
     return (
-      <h1>Template carregado</h1>
+      <div>
+        <Header />
+        <main className="container mt-5">
+          { this.props.children }
+        </main>
+      </div>
     )
   }
 }

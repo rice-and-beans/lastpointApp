@@ -1,9 +1,4 @@
-import React from "react";
-import ReactDOM from "react";
+import { route as routerHome } from '../pages/Home';
+import { route as routerLogin } from '../pages/Login'
 
-import { MainTemplate } from './components/templates/main';
-
-ReactDOM.render(
-  <MainTemplate />,
-  document.getElementById('root')
-);
+export const route = [routerHome, routerLogin];
