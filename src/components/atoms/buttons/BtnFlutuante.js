@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function BtnFlutuanteSlavar(props) {
+export default function BtnFlutuanteSalvar(props) {
   return (
     <TouchableOpacity
         onPress={() => console.log('')}
