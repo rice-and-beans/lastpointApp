@@ -1,12 +1,12 @@
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
-export default function BtnRetangular(props) {
+export default function BtnRetangVerdeClaro(props) {
   return (
     <TouchableOpacity
         onPress={() => console.log('')}
-        style={styles.botaoLogin}
+        style={styles.botaoRetang}
       >
-        <Text style={styles.textoLogin}>
+        <Text style={styles.textoBotaoRetang}>
             {props.titulo}
         </Text>
     </TouchableOpacity>
@@ -14,7 +14,7 @@ export default function BtnRetangular(props) {
 }
 
 const styles = StyleSheet.create({
-  botaoLogin: {
+  botaoRetang: {
     width:190,
     height:50,
     borderRadius:10,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textoLogin: {
+  textoBotaoRetang: {
     color: '#373737',
     fontSize: 17,
     fontWeight: 'bold',
