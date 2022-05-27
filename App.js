@@ -6,8 +6,7 @@ import BtnRetangVerdeClaro from './src/components/atoms/buttons/BtnRetangVerdeCl
 import BtnRefresh from './src/components/atoms/buttons/BtnRefresh';
 import BtnVoltar from './src/components/atoms/buttons/BtnVoltar';
 import InputRetangBranco from './src/components/atoms/inputs/InputRetangBranco';
-import InputRetangBrancoSenha from './src/components/atoms/inputs/InputRetangBrancoSenha';
-
+import SearchKeyword from './src/components/molecules/search-bar';
 
 export default function App() {
 
@@ -29,6 +28,7 @@ export default function App() {
       <BtnRetangVerdeClaro titulo="Login"></BtnRetangVerdeClaro>
       <BtnRefresh icone={iconRefresh}></BtnRefresh>
       <BtnVoltar icone={iconVoltar}></BtnVoltar>
+      <SearchKeyword></SearchKeyword>
       <StatusBar style="auto" />
     </View>
   );

@@ -1,10 +1,10 @@
 import { StyleSheet, TextInput } from 'react-native';
 
-export default function InputRetangBranco() {
+export default function InputRetangBranco(props) {
   return (
     <TextInput
       style={styles.inputRetang}
-      placeholder="Digite seu e-mail aqui"
+      placeholder={props.placeHolder}
     />
   );
 }
