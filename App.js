@@ -16,15 +16,12 @@ export default function App() {
   const iconRefresh = require('./assets/refreshingIcone.png');
   const iconVoltar = require('./assets/setaVoltarIcone.png');
 
-  const Stack = createStackNavigator();
-
   return (
     <View style={styles.container}>
       <BtnFlutuante icone={iconSalvar}></BtnFlutuante>
       <BtnFlutuante icone={iconEditar}></BtnFlutuante>
       <BtnFlutuante icone={iconAdicionar}></BtnFlutuante>
-      <InputRetangBranco></InputRetangBranco>
-      <InputRetangBrancoSenha />
+      <InputRetangBranco placeHolder='Funciona'></InputRetangBranco>
       <BtnRetangVerdeClaro titulo="Login"></BtnRetangVerdeClaro>
       <BtnRefresh icone={iconRefresh}></BtnRefresh>
       <BtnVoltar icone={iconVoltar}></BtnVoltar>

@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import InputRetangBranco from '../../atoms/inputs/InputRetangBranco';
+import TextoGeral from '../../atoms/text/TextoGeral';
 
 export default function SearchComponent(props){
   return (
     <View style={styles.container}>
-      <InputRetangBranco></InputRetangBranco>
+      <TextoGeral style={styles.texto} color='black'>Search</TextoGeral>
+      <InputRetangBranco placeHolder='Search'></InputRetangBranco>
     </View>
   )
 }
