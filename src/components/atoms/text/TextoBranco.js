@@ -1,6 +1,6 @@
 import { StyleSheet, Text } from 'react-native';
 
-export default function TextoGeral(props) {
+export default function TextoBranco(props) {
   return (
     <Text
       style={styles.texto}
@@ -10,6 +10,8 @@ export default function TextoGeral(props) {
 
 const styles = StyleSheet.create({
   texto: {
-    fontSize: 18
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    color:'#fff'
   }
 });
