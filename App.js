@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+
 import BtnFlutuante from './src/components/atoms/buttons/BtnFlutuante';
 import BtnRetangVerdeClaro from './src/components/atoms/buttons/BtnRetangVerdeClaro';
 import BtnRefresh from './src/components/atoms/buttons/BtnRefresh';
 import BtnVoltar from './src/components/atoms/buttons/BtnVoltar';
 import InputRetangBranco from './src/components/atoms/inputs/InputRetangBranco';
+import InputRetangBrancoSenha from './src/components/atoms/inputs/InputRetangBrancoSenha';
+
 
 export default function App() {
 
@@ -14,13 +17,16 @@ export default function App() {
   const iconRefresh = require('./assets/refreshingIcone.png');
   const iconVoltar = require('./assets/setaVoltarIcone.png');
 
+  const Stack = createStackNavigator();
+
   return (
     <View style={styles.container}>
       <BtnFlutuante icone={iconSalvar}></BtnFlutuante>
       <BtnFlutuante icone={iconEditar}></BtnFlutuante>
       <BtnFlutuante icone={iconAdicionar}></BtnFlutuante>
-      <BtnRetangVerdeClaro titulo="Login"></BtnRetangVerdeClaro>
       <InputRetangBranco></InputRetangBranco>
+      <InputRetangBrancoSenha />
+      <BtnRetangVerdeClaro titulo="Login"></BtnRetangVerdeClaro>
       <BtnRefresh icone={iconRefresh}></BtnRefresh>
       <BtnVoltar icone={iconVoltar}></BtnVoltar>
       <StatusBar style="auto" />
