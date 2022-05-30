@@ -1,5 +1,10 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import { LoginComponent } from './component'
+import React from 'react';
+import { View, Text } from 'react-native';
 
-export const route = <Route component={LoginComponent} path="/login" key="login" />
+export default function Login(){
+  return (
+    <View>
+      <Text>Login</Text>
+    </View>
+  );
+}
