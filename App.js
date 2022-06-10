@@ -8,10 +8,12 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <navigationContainer>
+    <Login></Login>
+  );
+}
+
+/*<navigationContainer>
       <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen name="Landing" component={Home} options={{headerShown: false}}/>
       </Stack.Navigator>
-    </navigationContainer>
-  );
-}
+    </navigationContainer>*/
