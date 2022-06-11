@@ -9,8 +9,8 @@ export default function Login() {
     return (
         <View style={styles.container}>
             <ImageLogoLogin></ImageLogoLogin>
-            <InputRetangularEmail></InputRetangularEmail>
-            <InputRetangularSenha></InputRetangularSenha>
+            <InputRetangularEmail ></InputRetangularEmail>
+            <InputRetangularSenha ></InputRetangularSenha>
             <BtnLogin></BtnLogin>
         </View>
     )
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#41A05E'
     }
 });

@@ -1,5 +1,4 @@
 import { StyleSheet, TextInput } from 'react-native';
-import { Button } from 'react-native-web';
 
 export default function InputRetangular(props) {
   return (
@@ -18,5 +17,5 @@ const styles = StyleSheet.create({
     width: '85%',
     height: 40,
     borderRadius: 7
-  },
+  }
 });

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   botaoflutuante: {
     width:80,
     height:80,
-    backgroundColor:'41A05E#',
+    backgroundColor:'#41A05E',
     borderRadius:50,
     justifyContent: 'center',
     alignItems: 'center'
