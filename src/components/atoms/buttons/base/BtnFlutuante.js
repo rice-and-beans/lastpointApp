@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
     backgroundColor:'41A05E#',
     borderRadius:50,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   IconeBotao: {
     width:40,
-    height:40,
+    height:40
   }
 });

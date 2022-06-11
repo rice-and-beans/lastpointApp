@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import TextoPreto from "../../atoms/text/base/TextoPreto";
+import ProximasAulas from "../../../atoms/text/tituloProximaAula/ProximasAulas";
 
-export default function TituloProximaAula() {
+export default function TituloProximaAulaIcone() {
 
     const historicoVerdeIcone = require('../../../../assets/historicoVerdeIcone.png');
 
     return (
         <View style={styles.container}>
-            <Text  style={TextoPreto}>Próximas aulas</Text>
+            <Text  style={ProximasAulas}/>
             <Image style={styles.historicoVerdeIcone} source={historicoVerdeIcone} />
         </View>
     )
