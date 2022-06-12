@@ -11,7 +11,7 @@ export default function TextoBranco(props) {
 const styles = StyleSheet.create({
   texto: {
     fontFamily: 'Roboto',
-    fontSize: 18,
+    fontSize: 25,
     color:'#fff'
   }
 });
