@@ -10,12 +10,15 @@ export default function InputRetangular(props) {
   );
 }
 
+const color = props.color
+
 const styles = StyleSheet.create({
   inputRetangular: {
     outlineStyle:'none',
     padding: 10,
     width: '85%',
     height: 40,
-    borderRadius: 7
+    borderRadius: 7,
+    backgroundColor: color
   }
 });

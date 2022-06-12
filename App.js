@@ -1,10 +1,11 @@
-import {createStackNavigator} from '@react-navigation/stack';
-import {navigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { navigationContainer } from '@react-navigation/native';
 
 import Home from './src/pages/Home';
 import Login from './src/components/templates/login/Login';
+import BarraPesquisa from './src/components/molecules/barra-pesquisa/Pesquisa';
 
-const Stack = createStackNavigator();
+//const Stack = createStackNavigator();
 
 export default function App() {
   return (

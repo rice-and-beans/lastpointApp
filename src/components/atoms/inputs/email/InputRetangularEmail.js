@@ -3,13 +3,6 @@ import InputRetangular from "../base/InputRetangular";
 
 export default function InputRetangularEmail() {
   return (
-    <InputRetangular style={styles.inputEmail} placeHolder="Email"></InputRetangular>
+    <InputRetangular color="#fff" placeHolder="E-mail"></InputRetangular>
   );
 }
-
-const styles = StyleSheet.create({
-  inputEmail: {
-    outlineStyle:'solid',
-    backgroundColor:'#fff'
-  }
-});
