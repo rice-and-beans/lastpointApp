@@ -3,22 +3,20 @@ import { StyleSheet, TextInput } from 'react-native';
 export default function InputRetangular(props) {
   return (
     <TextInput
-      style={styles.inputRetangular}
+      style={styles.branco}
       placeholder={props.placeHolder}
       secureTextEntry={props.campoSenha}
     />
   );
 }
 
-const color = props.color
-
 const styles = StyleSheet.create({
-  inputRetangular: {
+  branco: {
     outlineStyle:'none',
     padding: 10,
     width: '85%',
     height: 40,
     borderRadius: 7,
-    backgroundColor: color
+    backgroundColor: '#fff'
   }
 });
