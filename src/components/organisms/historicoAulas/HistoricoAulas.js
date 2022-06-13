@@ -15,16 +15,16 @@ export default function TituloProximaAulaIcone() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height:'100%',
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexDirection: 'row'
-    },
-    historicoIconeVerde: {
-        width: '35px',
-        height: '35px',
-        alignItems: 'center'
-    }
+  container: {
+      height:'100%',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexDirection: 'row'
+  },
+  historicoIconeVerde: {
+      width: '35px',
+      height: '35px',
+      alignItems: 'center'
+  }
 });
