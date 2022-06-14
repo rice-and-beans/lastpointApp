@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 
 export default function ViewVerde(props) {
     return (
-        <View style={styles.view}/>
+        <View style={styles.view}>{props.children}</View>
     );
 }
 
@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
     view: {
         margin: 10,
         display:'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        flexDirection: 'row',
         width:'90%',
-        height:'40%',
+        height:'auto',
         backgroundColor:'#41A05E',
-        borderRadius:50
+        borderRadius: 25
     }
 });

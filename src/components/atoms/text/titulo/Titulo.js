@@ -1,8 +1,8 @@
 import { Text, StyleSheet } from 'react-native';
 
-export default function ProximasAulas() {
+export default function Titulo(props) {
     return (
-        <Text style={styles.texto}>Próximas aulas</Text>
+        <Text style={styles.texto}>{props.children}</Text>
     );
 }
 
