@@ -1,10 +1,10 @@
-import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-import InputRetangular from '../../atoms/inputs/base/InputRetangular';
+import React from 'react'
+import { StyleSheet, View, Image } from 'react-native'
+import InputRetangular from '../../atoms/inputs/base/InputRetangular'
 
 export default function Pesquisa(){
 
-  const iconeLupa = require('../../../../assets/lupaVerdeIcone.png');
+  const iconeLupa = require('../../../../assets/lupaVerdeIcone.png')
 
   return (
     <View style={styles.container}>
