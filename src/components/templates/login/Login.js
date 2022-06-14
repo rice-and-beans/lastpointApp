@@ -5,7 +5,7 @@ import ImageLogoLogin from '../../atoms/image/login/ImageLogoLogin.js';
 import InputRetangularEmail from '../../atoms/inputs/email/InputRetangularEmail';
 import InputRetangularSenha from '../../atoms/inputs/senha/InputRetangularSenha';
 
-export default function Login() {
+export default function LoginTeste() {
     return (
         <View style={styles.container}>
             <ImageLogoLogin></ImageLogoLogin>
