@@ -9,11 +9,11 @@ export default function HistoricoAulas(props) {
         <View style={styles.container}>
             <ViewVerde>
                 <Descricao>
-                    Disciplina: {props.disciplina}<br/>
-                    Horário: {props.horario}<br/>
-                    Data: {props.data}<br/>
-                    Professor: {props.professor}<br/>
-                    Turma: {props.turma}<br/>
+                    Disciplina: {props.disciplina}{"\n"}
+                    Horário: {props.horario}{"\n"}
+                    Data: {props.data}{"\n"}
+                    Professor: {props.professor}{"\n"}
+                    Turma: {props.turma}
                 </Descricao>
                 {
                     props.icone ? <Image style={styles.icone} source={props.icone} /> : <View></View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     icone: {
         margin: 10,
         display: 'flex',
-        width: '35px',
-        height: '35px'
+        width: 35,
+        height: 35
     }
 })
