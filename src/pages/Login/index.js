@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Button} from 'react-native';
-import LoginTeste from '../../components/templates/login/Login';
+import LoginPage from '../../components/templates/login/LoginPage';
 
 export default function Login(){
   return (
     <View>
-      <LoginTeste/>
+      <LoginPage/>
     </View>
   );
 }

@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import BtnLogin from '../../components/atoms/buttons/logar/BtnLogin';
-import LoginTeste from '../../components/templates/login/Login';
-import Login from '../Login';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home(){
+  const navigation = useNavigation();
+
+  function navigateToLogin() {
+    navigation.navigate("Login");
+  }
   return (
-    <View>
-      <LoginTeste/>
+    <View style={{marginTop: '10%'}}>
+      <TouchableOpacity onPress={navigateToLogin}>
+        <Text style={{ backgroundColor: "#E02041" }}>Go to second page</Text>
+      </TouchableOpacity>
     </View>
   );
 }

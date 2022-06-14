@@ -5,7 +5,7 @@ import ImageLogoLogin from '../../atoms/image/login/ImageLogoLogin.js';
 import InputRetangularEmail from '../../atoms/inputs/email/InputRetangularEmail';
 import InputRetangularSenha from '../../atoms/inputs/senha/InputRetangularSenha';
 
-export default function LoginTeste() {
+export default function LoginPage() {
     return (
         <View style={styles.container}>
             <ImageLogoLogin></ImageLogoLogin>
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#41A05E'
     },
     inputSenha: {
-        backgroundColor:'#fff'
+        backgroundColor:'#fff',
     }
 });
