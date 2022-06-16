@@ -12,7 +12,8 @@ export default function InputRetangular(props) {
 
 const styles = StyleSheet.create({
   branco: {
-    outlineStyle:'none',
+    margin: 10,
+    borderWidth: 0,
     padding: 10,
     width: '85%',
     height: 40,
