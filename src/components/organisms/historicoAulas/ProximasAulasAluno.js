@@ -4,10 +4,9 @@ import HistoricoAulas from "../../../components/molecules/proximaAula/historicoA
 import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
-export default function ProximasAulasProfessor() {
+export default function ProximasAulasAluno() {
 
-  const qrcodeIcone = require('../../../../assets/qrcodeIcone.png')
-  const historicoVerdeIcone = require('../../../../assets/historicoVerdeIcone.png')
+  const qrcodeIconeVerde = require('../../../../assets/qrcodeIconeVerde.png')
   const lista = [
     {
       id: 1,
@@ -22,8 +21,8 @@ export default function ProximasAulasProfessor() {
   return (
       <View>
         <AppBar/>
-        <TituloIcone icone={historicoVerdeIcone} titulo='Próximas Aulas'/>
-        <HistoricoAulas icone={qrcodeIcone} dados={lista}/>
+        <TituloIcone btnIcone={qrcodeIconeVerde} titulo='Próximas Aulas'/>
+        <HistoricoAulas dados={lista}/>
       </View>
   )
 }

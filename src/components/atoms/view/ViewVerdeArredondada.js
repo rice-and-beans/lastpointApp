@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 
-export default function ViewVerde(props) {
+export default function ViewVerdeArredondada(props) {
     return (
         <View style={styles.view}>{props.children}</View>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import Titulo from "../../../atoms/text/titulo/Titulo";
+import Titulo from "../../../atoms/text/titulo/TituloPreto";
+import BtnIcone from '../../../atoms/buttons/base/BtnIcone'
 
 export default function TituloIcone(props) {
 
@@ -8,7 +9,10 @@ export default function TituloIcone(props) {
         <View style={styles.container}>
             <Titulo>{props.titulo}</Titulo>
             {
-                props.icone ? <Image style={styles.icone} source={props.icone} /> : <View></View>
+                props.icone ? <Image style={styles.icone} source={props.icone} /> : null
+            }
+            {
+                props.btnIcone ? <BtnIcone iconeBotao={props.btnIcone} /> : null
             }
         </View>
     )
@@ -24,8 +28,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     icone: {
-        width: '35px',
-        height: '35px',
+        width: 30,
+        height: 30,
         alignItems: 'center'
     }
 });

@@ -1,6 +1,6 @@
 import { Text, StyleSheet } from 'react-native';
 
-export default function Titulo(props) {
+export default function TituloPreto(props) {
     return (
         <Text style={styles.texto}>{props.children}</Text>
     );
@@ -8,10 +8,8 @@ export default function Titulo(props) {
 
 const styles = StyleSheet.create({
     texto: {
-        margin: 15,
         fontFamily: 'Roboto',
-        fontSize: 20,
-        color: '#fff',
-        lineHeight: 27
+        fontSize: 25,
+        color: '#000'
     }
 });

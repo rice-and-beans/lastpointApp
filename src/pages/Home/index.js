@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import HistoricoAulasAluno from '../../components/organisms/historicoAulas/HistoricoAulasAluno';
+import ProximasAulasProfessor from '../../components/organisms/historicoAulas/ProximasAulasProfessor';
 
 export default function Home(){
   const navigation = useNavigation();
@@ -10,11 +10,11 @@ export default function Home(){
     navigation.navigate("Login");
   }
   return (
-    <View style={{marginTop: '10%'}}>
+    <SafeAreaView style={{flex: 1, marginTop: StatusBar.currentHeight}}>
       <TouchableOpacity onPress={navigateToLogin}>
         <Text style={{ backgroundColor: "#E02041" }}>Go to second page</Text>
       </TouchableOpacity>
-      <HistoricoAulasAluno/>
-    </View>
+      <ProximasAulasProfessor></ProximasAulasProfessor>
+    </SafeAreaView>
   );
 }

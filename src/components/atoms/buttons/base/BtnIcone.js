@@ -1,8 +1,6 @@
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function BtnRefresh(props) {
-
-  const refreshingIcone = require('../../../../../assets/refreshingIcone.png');
+export default function BtnIcone(props) {
 
   return (
     <TouchableOpacity 
@@ -10,8 +8,8 @@ export default function BtnRefresh(props) {
         onPress={() => console.log('')}
       >
         <Image 
-            source={refreshingIcone} 
-            style={styles.IconeBotao} 
+          style={styles.IconeBotao}
+            source={props.iconeBotao}
         /> 
     </TouchableOpacity>
   );
