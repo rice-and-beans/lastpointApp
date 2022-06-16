@@ -15,6 +15,7 @@ export default function BtnSubmit(props) {
 
 const styles = StyleSheet.create({
     botaoSubmit: {
+        margin: 10,
         width:190,
         height:50,
         borderRadius:10,
