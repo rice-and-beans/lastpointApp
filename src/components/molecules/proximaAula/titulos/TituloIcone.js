@@ -8,12 +8,14 @@ export default function TituloIcone(props) {
     return (
         <View style={styles.container}>
             <Titulo>{props.titulo}</Titulo>
-            {
-                props.icone ? <Image style={styles.icone} source={props.icone} /> : null
-            }
-            {
-                props.btnIcone ? <BtnIcone iconeBotao={props.btnIcone} /> : null
-            }
+            <View style={styles.view}>
+                {
+                    props.icone ? <BtnIcone iconeBotao={props.icone} /> : null
+                }
+                {
+                    props.btnIcone ? <BtnIcone iconeBotao={props.btnIcone} /> : null
+                }
+            </View>
         </View>
     )
 }
@@ -27,9 +29,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row'
     },
-    icone: {
-        width: 30,
-        height: 30,
-        alignItems: 'center'
+    view: {
+        flexDirection: 'row',
     }
 });

@@ -17,6 +17,7 @@ export default function BtnIcone(props) {
 
 const styles = StyleSheet.create({
   container: {
+    marginLeft: 10,
     width: 'auto',
     height: 'auto',
   },

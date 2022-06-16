@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import ProximasAulasProfessor from '../../components/organisms/historicoAulas/ProximasAulasProfessor';
+import ProximasAulas from '../../components/organisms/historicoAulas/ProximasAulas';
 
 export default function Home(){
   const navigation = useNavigation();
@@ -14,7 +14,7 @@ export default function Home(){
       <TouchableOpacity onPress={navigateToLogin}>
         <Text style={{ backgroundColor: "#E02041" }}>Go to second page</Text>
       </TouchableOpacity>
-      <ProximasAulasProfessor></ProximasAulasProfessor>
+      <ProximasAulas></ProximasAulas>
     </SafeAreaView>
   );
 }

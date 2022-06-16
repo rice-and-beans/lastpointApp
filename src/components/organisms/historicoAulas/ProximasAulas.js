@@ -1,12 +1,13 @@
 import React from 'react'
 import { View } from 'react-native'
-import HistoricoAulas from "../../../components/molecules/proximaAula/historicoAulas/HistoricoAulas"
+import HistoricoAulas from "../../molecules/proximaAula/historicoAulas/HistoricoAulas"
 import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
-export default function ProximasAulasProfessor() {
+export default function ProximasAulas() {
 
   const qrcodeIcone = require('../../../../assets/qrcodeIcone.png')
+  const qrcodeIconeVerde = require('../../../../assets/qrcodeIconeVerde.png')
   const historicoVerdeIcone = require('../../../../assets/historicoVerdeIcone.png')
   const lista = [
     {
@@ -78,8 +79,8 @@ export default function ProximasAulasProfessor() {
   return (
       <View>
         <AppBar/>
-        <TituloIcone icone={historicoVerdeIcone} titulo='Próximas Aulas'/>
-        <HistoricoAulas icone={qrcodeIcone} dados={lista}/>
+        <TituloIcone icone={historicoVerdeIcone} btnIcone={true ? qrcodeIconeVerde : null} titulo='Próximas Aulas'/>
+        <HistoricoAulas icone={true ? null : qrcodeIcone} dados={lista}/>
       </View>
   )
 }

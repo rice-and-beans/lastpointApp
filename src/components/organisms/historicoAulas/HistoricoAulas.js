@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import HistoricoAulas from "../../../components/molecules/proximaAula/historicoAulas/HistoricoAulas"
+import HistoricoAulas from "../../molecules/proximaAula/historicoAulas/HistoricoAulas"
 import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
@@ -23,16 +23,17 @@ const lista = [
   }
 ]
 
-export default function HistoricoAulasAluno(props) {
+export default function HistoricoAulas(props) {
 
   const verificadoIcone = require('../../../../assets/verificadoIcone.png')
   const naoVerificadoIcone = require('../../../../assets/naoVerificadoIcone.png')
+  const icone = true ? verificadoIcone : naoVerificadoIcone
 
   return (
       <View>
         <AppBar/>
         <TituloIcone titulo='Histórico de Aulas'/>
-        <HistoricoAulas dados={lista} icone={true ? verificadoIcone : naoVerificadoIcone}/>
+        <HistoricoAulas dados={lista} icone={props.isAluno ? icone : null}/>
       </View>
   )
 }
