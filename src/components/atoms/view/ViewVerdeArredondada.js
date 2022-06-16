@@ -9,7 +9,6 @@ export default function ViewVerdeArredondada(props) {
 const styles = StyleSheet.create({
     view: {
         margin: 10,
-        display:'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         flexDirection: 'row',
