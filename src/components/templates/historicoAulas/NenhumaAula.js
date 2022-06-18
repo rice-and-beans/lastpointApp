@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
+import TituloIcone from "../../molecules/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
 export default function NenhumaAula(props) {

@@ -2,7 +2,7 @@ import { Text, StyleSheet } from 'react-native';
 
 export default function TituloPreto(props) {
     return (
-        <Text style={styles.texto}>{props.children}</Text>
+        <Text style={[styles.texto,props.style]}>{props.children}</Text>
     );
 }
 

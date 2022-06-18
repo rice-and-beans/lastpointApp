@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import Titulo from "../../../atoms/text/titulo/TituloPreto";
-import BtnIcone from '../../../atoms/buttons/base/BtnIcone'
+import Titulo from "../../atoms/text/titulo/TituloPreto";
+import BtnIcone from '../../atoms/buttons/base/BtnIcone'
 
 export default function TituloIcone(props) {
 

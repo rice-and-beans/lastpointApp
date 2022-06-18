@@ -2,7 +2,6 @@ import { React, useEffect, useState } from 'react'
 import { Button, Dimensions, StyleSheet, Text, View } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 import BarcodeMask from 'react-native-barcode-mask'
-import AppBar from '../appBar/AppBar'
 
 const finderWidth = 300
 const finderHeight = 300

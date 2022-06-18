@@ -1,39 +1,45 @@
 import React from 'react'
-import { View } from 'react-native'
-import HistoricoAulas from "../../molecules/proximaAula/historicoAulas/HistoricoAulas"
-import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
-import AppBar from '../../molecules/appBar/AppBar'
-
-const lista = [
-  {
-    id: 1,
-    disciplina: 'Informática',
-    horario: '19:00',
-    data: '21/06/2022',
-    professor: 'Douglas',
-    turma: '2'
-  },
-  {
-    id: 2,
-    disciplina: 'Informática',
-    horario: '19:00',
-    data: '21/06/2022',
-    professor: 'Douglas',
-    turma: '2'
-  }
-]
+import { StyleSheet, View, Image } from 'react-native'
+import ViewVerdeArredondada from '../../atoms/view/ViewVerdeArredondada'
+import { FlatList } from 'react-native'
+import DescricaoBranca from '../../atoms/text/historico/DescricaoBranca'
 
 export default function HistoricoAulas(props) {
-
-  const verificadoIcone = require('../../../../assets/verificadoIcone.png')
-  const naoVerificadoIcone = require('../../../../assets/naoVerificadoIcone.png')
-  const icone = true ? verificadoIcone : naoVerificadoIcone
-
-  return (
-      <View>
-        <AppBar/>
-        <TituloIcone titulo='Histórico de Aulas'/>
-        <HistoricoAulas dados={lista} icone={props.isAluno ? icone : null}/>
-      </View>
-  )
+    return (
+        <View style={styles.container}>
+            <FlatList style={{width: '100%', marginLeft: 15, height:'99%', paddingBottom: 20}}
+                data={props.dados} 
+                renderItem={ ({item})=>
+                    <ViewVerdeArredondada>
+                        <DescricaoBranca>
+                            Disciplina: {item.disciplina}{"\n"}
+                            Horário: {item.horario}{"\n"}
+                            Data: {item.data}{"\n"}
+                            Professor: {item.professor}{"\n"}
+                            Turma: {item.turma}
+                        </DescricaoBranca>
+                        {
+                            props.icone ? <Image style={styles.icone} source={props.icone} /> : <View></View>
+                        }
+                    </ViewVerdeArredondada>
+            } keyExtractor={(item)=>item.id}/>
+        </View>
+    )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        width: 'auto',
+        height:'87%',
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center'
+    },
+    icone: {
+        margin: 10,
+        display: 'flex',
+        width: 35,
+        height: 35
+    }
+})

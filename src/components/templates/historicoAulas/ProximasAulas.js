@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
-import HistoricoAulas from "../../molecules/proximaAula/historicoAulas/HistoricoAulas"
-import TituloIcone from "../../molecules/proximaAula/titulos/TituloIcone"
+import HistoricoAulas from "../../organisms/historicoAulas/HistoricoAulas"
+import TituloIcone from "../../molecules/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
 export default function ProximasAulas() {
