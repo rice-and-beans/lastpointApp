@@ -1,16 +1,16 @@
 import { React, useEffect, useState } from 'react'
-import { Button, Dimensions, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+import { Button, Dimensions, StyleSheet, Text, View } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 import BarcodeMask from 'react-native-barcode-mask'
 
-const finderWidth = 280
-const finderHeight = 230
+const finderWidth = 300
+const finderHeight = 300
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 const viewMinX = (width - finderWidth) / 2
 const viewMinY = (height - finderHeight) / 2
 
-export default function BarCodeScanScreen() {
+export default function LeitorQRCode(props) {
 
   const [hasPermission, setHasPermission] = useState(null)
   const [type, setType] = useState(BarCodeScanner.Constants.Type.back)
@@ -44,30 +44,10 @@ export default function BarCodeScanScreen() {
         <BarCodeScanner onBarCodeScanned={handleBarCodeScanned}
           type={type}
           barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-          style={[StyleSheet.absoluteFillObject, styles.container]}>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: 'transparent',
-            flexDirection: 'row',
-          }}>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            alignItems: 'flex-end',
-          }}
-          onPress={() => {
-            setType(
-              type === BarCodeScanner.Constants.Type.back
-              ? BarCodeScanner.Constants.Type.front
-              : BarCodeScanner.Constants.Type.back
-            )
-          }}>
-          <Text style={{fontSize: 18, margin: 5, color: 'white'}}> Flip </Text>
-          </TouchableOpacity>
-        </View>
-        <BarcodeMask edgeColor="#62B1F6" showAnimatedLine/>
-          {scanned && <Button title="Scan Again" onPress={() => setScanned(false)}/>}
+          style={[styles.container]}>
+        
+        <BarcodeMask edgeColor="#41A05E" height={300} width={300} showAnimatedLine/>
+          {scanned && <Button title="Scan Again" color="#41A05E" onPress={() => setScanned(false)}/>}
         </BarCodeScanner>
       </View>
     )
@@ -78,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 300,
   },
   title: {
     fontSize: 20,
