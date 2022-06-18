@@ -1,6 +1,6 @@
 import { Text, StyleSheet } from 'react-native';
 
-export default function Titulo(props) {
+export default function DescricaoBranca(props) {
     return (
         <Text style={styles.texto}>{props.children}</Text>
     );
