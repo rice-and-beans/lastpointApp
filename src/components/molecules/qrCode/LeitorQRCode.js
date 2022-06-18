@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react'
 import { Button, Dimensions, StyleSheet, Text, View } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 import BarcodeMask from 'react-native-barcode-mask'
+import AppBar from '../appBar/AppBar'
 
 const finderWidth = 300
 const finderHeight = 300
@@ -40,7 +41,7 @@ export default function LeitorQRCode(props) {
       return <Text>No access to camera</Text>;
     }
     return (
-      <View style={{flex: 1}}>
+      <View >
         <BarCodeScanner onBarCodeScanned={handleBarCodeScanned}
           type={type}
           barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
@@ -55,10 +56,11 @@ export default function LeitorQRCode(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 300,
+    alignItems: 'center',
+    marginLeft: 20,
+    width: '90%',
+    height: '91%',
   },
   title: {
     fontSize: 20,

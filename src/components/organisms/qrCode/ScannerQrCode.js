@@ -6,9 +6,11 @@ import LeitorQRCode from '../../molecules/qrCode/LeitorQRCode'
 export default function ScannerQrCode(props) {
 
     return (
-        <View>
+        <View style={{flex: 1}}>
             <AppBar/>
-            <LeitorQRCode />
+            <View style={{justifyContent:'center'}}>
+                <LeitorQRCode />
+            </View>
         </View>
     )
 }
