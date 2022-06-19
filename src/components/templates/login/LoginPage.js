@@ -5,13 +5,23 @@ import ImageLogoLogin from '../../atoms/image/login/ImageLogoLogin.js';
 import InputRetangularEmail from '../../atoms/inputs/email/InputRetangularEmail';
 import InputRetangularSenha from '../../atoms/inputs/senha/InputRetangularSenha';
 
-export default function LoginPage() {
+export default function LoginPage(props) {
     return (
         <View style={styles.container}>
             <ImageLogoLogin></ImageLogoLogin>
-            <InputRetangularEmail ></InputRetangularEmail>
-            <InputRetangularSenha style={styles.inputSenha}></InputRetangularSenha>
-            <BtnLogin></BtnLogin>
+            
+            <InputRetangularEmail 
+                textLogin={props.textLogin} 
+                setLogin={props.setLogin}>                
+            </InputRetangularEmail>
+            
+            <InputRetangularSenha 
+                style={styles.inputSenha}
+                textSenha={props.textSenha}
+                setSenha={props.setSenha}>
+            </InputRetangularSenha>
+            
+            <BtnLogin onClickFunc={props.onClickFunc}></BtnLogin>
         </View>
     )
 }

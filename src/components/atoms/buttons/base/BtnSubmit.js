@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 export default function BtnSubmit(props) {
   return (
     <TouchableOpacity
-        onPress={() => console.log('')}
+        onPress={props.onClickFunc}
         style={styles.botaoSubmit}
       >
         <Text style={styles.textoSubmit}>

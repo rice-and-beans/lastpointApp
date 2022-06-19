@@ -6,6 +6,8 @@ export default function InputRetangular(props) {
       style={styles.branco}
       placeholder={props.placeHolder}
       secureTextEntry={props.campoSenha}
+      value={props.textInput}
+      onChangeText={(value) => {props.setValue(value)}}
     />
   );
 }

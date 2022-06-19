@@ -1,8 +1,10 @@
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import BtnSubmit from "../base/BtnSubmit";
+import React, { useState } from 'react';
 
 export default function BtnLogin(props) {
+
   return (
-    <BtnSubmit titulo="Login"></BtnSubmit>
+    <BtnSubmit titulo="Login" onClickFunc={props.onClickFunc}></BtnSubmit>
   );
+  
 }

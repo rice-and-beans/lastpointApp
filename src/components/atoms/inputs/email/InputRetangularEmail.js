@@ -1,8 +1,10 @@
-import { StyleSheet } from 'react-native';
 import InputRetangular from "../base/InputRetangular";
 
-export default function InputRetangularEmail() {
+export default function InputRetangularEmail(props) {
   return (
-    <InputRetangular placeHolder="E-mail"></InputRetangular>
+    <InputRetangular placeHolder="E-mail" 
+                     textInput={props.setLogin}
+                     setValue={props.setLogin}>
+    </InputRetangular>
   );
 }
