@@ -1,12 +1,12 @@
 import React from 'react'
 import { View } from 'react-native'
-import ProximasAulas from '../../components/templates/historicoAulas/ProximasAulas'
+import ProximasAulasPage from '../../components/templates/historicoAulas/ProximasAulasPage'
 
 export default function AulasProfessor() {
 
   return (
       <View>
-        <ProximasAulas></ProximasAulas>
+        <ProximasAulasPage></ProximasAulasPage>
       </View>
   )
 }

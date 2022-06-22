@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 
 export default function ViewVerdeArredondada(props) {
     return (
-        <View style={styles.view}>{props.children}</View>
+        <View style={[styles.view, props.style]}>{props.children}</View>
     );
 }
 

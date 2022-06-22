@@ -23,7 +23,7 @@ const lista = [
   }
 ]
 
-export default function HistoricoAulas(props) {
+export default function HistoricoAulasPage(props) {
 
   const verificadoIcone = require('../../../../assets/verificadoIcone.png')
   const naoVerificadoIcone = require('../../../../assets/naoVerificadoIcone.png')

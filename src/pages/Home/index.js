@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import ExibirQRCode from '../VisualizacaoQrCode';
+import HistoricoProfessor from '../HistoricoProfessor'
 
 export default function Home(){
   const navigation = useNavigation();
@@ -15,7 +15,7 @@ export default function Home(){
       <TouchableOpacity onPress={navigateToLogin}>
         <Text style={{ backgroundColor: "#E02041" }}>Go to second page</Text>
       </TouchableOpacity>
-      <ExibirQRCode/>
+      <HistoricoProfessor/>
     </SafeAreaView>
   );
 }

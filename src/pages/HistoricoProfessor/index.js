@@ -1,12 +1,12 @@
 import React from 'react'
 import { View } from 'react-native'
-import HistoricoAulas from '../../components/organisms/historicoAulas/HistoricoAulas'
+import HistoricoAulasPage from '../../components/templates/historicoAulas/HistoricoAulasPage'
 
 export default function HistoricoProfessor() {
 
   return (
       <View>
-        <HistoricoAulas></HistoricoAulas>
+        <HistoricoAulasPage></HistoricoAulasPage>
       </View>
   )
 }

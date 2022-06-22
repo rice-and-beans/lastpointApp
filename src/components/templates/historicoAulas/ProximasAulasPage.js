@@ -4,7 +4,7 @@ import HistoricoAulas from "../../organisms/historicoAulas/HistoricoAulas"
 import TituloIcone from "../../molecules/titulos/TituloIcone"
 import AppBar from '../../molecules/appBar/AppBar'
 
-export default function ProximasAulas() {
+export default function ProximasAulasPage() {
 
   const qrcodeIcone = require('../../../../assets/qrcodeIcone.png')
   const qrcodeIconeVerde = require('../../../../assets/qrcodeIconeVerde.png')
