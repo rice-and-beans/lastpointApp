@@ -27,6 +27,7 @@ export default function HistoricoAulas(props) {
     )
 }
 
+
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
@@ -37,7 +38,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     icone: {
-        margin: 10,
+        marginBottom: 5,
+        marginRight: 10,
         display: 'flex',
         width: 35,
         height: 35

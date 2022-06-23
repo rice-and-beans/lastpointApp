@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         flexDirection: 'row',
-        width:'90%',
+        width:'92%',
         height:'auto',
         backgroundColor:'#41A05E',
-        borderRadius: 25
+        borderRadius: 20
     }
 });

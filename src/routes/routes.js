@@ -1,8 +1,6 @@
-import react from "react";
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Login from "../pages/Login";
-import Home from "../pages/Home";
 import AulasAluno from "../pages/AulasAluno";
 import AulasProfessor from "../pages/AulasProfessor";
 import HistoricoAluno from "../pages/HistoricoAluno";
@@ -16,7 +14,6 @@ const Stack = createStackNavigator();
 export default function Routes() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Home" options={{ headerShown: false }} component={Home} />
             <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
             <Stack.Screen name="AulasAluno" options={{ headerShown: false }} component={AulasAluno} />
             <Stack.Screen name="AulasProfessor" options={{ headerShown: false }} component={AulasProfessor} />

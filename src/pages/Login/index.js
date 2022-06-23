@@ -5,8 +5,9 @@ import * as SecureStore from 'expo-secure-store';
 import { SecurityConstants } from "../../constants/securityConstants";
 import { useNavigation } from '@react-navigation/native';
 import { Alert } from "react-native";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GerarTokenUsuarioController } from '../../controllers/Login/gerarTokenUsuarioController';
+import { BuscarUsuarioPorEmailController } from '../../controllers/Login/buscaUsuarioPorEmailController';
 
 export default function Login() {
 
@@ -15,6 +16,9 @@ export default function Login() {
   
   const navigation = useNavigation();
   const gerarTokenUsuarioController = new GerarTokenUsuarioController();
+  const buscarUsuarioPorEmailController = new BuscarUsuarioPorEmailController();
+  
+  useEffect(()=> {carregaInicial()}, []);
   
   return (
     <View>
@@ -27,17 +31,20 @@ export default function Login() {
     </View>
   );
 
-  function navigateToLogin() {
-    navigation.navigate("Login");
-  }
-
   async function logar(){
     var retorno;
     try {
-      retorno = await gerarTokenUsuarioController.gerarTokenUsuario(login, senha);
+      retorno = await gerarTokenUsuarioController.execute(login, senha);
       if(retorno){
-        SecureStore.setItemAsync(SecurityConstants.TOKEN_ACESSO, retorno);
-        navigateToLogin();
+        const usuario = await buscarUsuarioPorEmailController.execute(login);
+        if(usuario && usuario.tipo){
+          await SecureStore.setItemAsync(SecurityConstants.TOKEN_ACESSO, retorno);
+          await SecureStore.setItemAsync(SecurityConstants.TIPO_USUARIO, (usuario.tipo).toString());
+          await SecureStore.setItemAsync(SecurityConstants.USUARIO_COD, (usuario.codigo).toString());
+          trocarTela(usuario.tipo);
+        }else{
+          Alert.alert('Aviso:',"Senha ou usuário inválido");
+        }
       }else{
         Alert.alert('Aviso:',"Senha ou usuário inválido");
       }
@@ -45,4 +52,30 @@ export default function Login() {
       Alert.alert('Aviso:',"Erro ao logar: \n"+error.message);
     }
   }
+
+  async function carregaInicial(){
+    const token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
+    const tipo = await SecureStore.getItemAsync(SecurityConstants.TIPO_USUARIO);
+    const usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
+    if(token && tipo && usuarioCod){
+      trocarTela(tipo);
+    }
+  }
+
+  function trocarTela(tipo){
+    if(tipo == 1){
+      navigateToHistoricoProfessor();
+    }else{
+      navigateToHistoricoAluno();
+    }
+  }
+
+  function navigateToHistoricoProfessor(){
+    navigation.navigate("AulasProfessor");
+  }
+
+  function navigateToHistoricoAluno(){
+    navigation.navigate("HistoricoAluno");
+  }
+
 }
