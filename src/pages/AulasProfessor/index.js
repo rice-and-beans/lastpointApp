@@ -59,7 +59,6 @@ export default function AulasProfessor() {
         dataAtual = new Date();
         const temAulaAtual = dataIni && dataFin && dataAtual && dataAtual > dataIni && dataAtual < dataFin;
 
-        console.log(umItem)
         var item = {
           codigo: umItem.codigo,
           disciplina: umItem.disciplina ? umItem.disciplina.nome : " - ",

@@ -18,7 +18,6 @@ export class AulasFuturasAlunoController
                 return null;
             }
         }).catch((err) => {
-            console.log(err)
             if(err.message && err.message.includes(MensagensConstants.MGS_SERVICO_INDISPONIVEL_AUTH)){
                 throw new Error("Serviço indisponível: AuthApi");
             }else{
