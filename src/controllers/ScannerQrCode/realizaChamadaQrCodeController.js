@@ -13,7 +13,6 @@ export class RealizaChamadaQrCodeController {
                 "x-access-token": token
             }
         }).then(function (response) {
-            console.log(response.status)
             if(response && response.status){
                 return response.status;
             }else if(response){
