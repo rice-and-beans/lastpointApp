@@ -11,9 +11,9 @@ export default function AppBar(props) {
       <View style={styles.container}>
           <ViewVerdeRetangular>
             <View style={styles.position}>
-              <BtnVoltar/>
+              <BtnVoltar funcaoVoltar={props.funcaoVoltar} />
               <TituloBranco>LastPoint</TituloBranco>
-              <BtnRefresh/>
+              <BtnRefresh funcaoAtualizar={props.funcaoAtualizar}/>
             </View>
           </ViewVerdeRetangular>
       </View>

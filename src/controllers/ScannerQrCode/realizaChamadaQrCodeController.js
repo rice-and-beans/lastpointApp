@@ -1,12 +1,17 @@
 import { MensagensConstants } from '../../constants/mensagensConstants';
 const axios = require('axios');
 
-export class GerarTokenUsuarioController {
+export class RealizaChamadaQrCodeController {
 
-    async execute(login, senha) {
-        return await axios.post('http://localhost:3002/auth/', {
-            login: login,
-            senha: senha
+    async execute(token, codigo, chaveAula){
+        return await axios.post('http://localhost:3001/chamada/realizaChamadaQrCode', {
+            headers:{
+               "x-access-token": token
+            },
+            data: {
+                codUsuario: codigo,
+                chaveAula: chaveAula
+            }
         }).then(function (response) {
             if(response){
                 return response.data ? response.data : null
@@ -15,7 +20,7 @@ export class GerarTokenUsuarioController {
             }
         }).catch((err) => {
             if(err.message && err.message.includes(MensagensConstants.MGS_SERVICO_INDISPONIVEL_AUTH)){
-                throw new Error("Serviço indisponível: AuthApi");
+                throw new Error("Serviço indisponível: CallerServiceApi");
             }else{
                 return null;
             }

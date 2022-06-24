@@ -7,7 +7,7 @@ export default function BtnVoltar(props) {
   return (
     <TouchableOpacity 
         style={styles.container}
-        onPress={() => console.log('')}
+        onPress={props.funcaoVoltar}
       >
         <Image 
             source={setaVoltarIcone} 

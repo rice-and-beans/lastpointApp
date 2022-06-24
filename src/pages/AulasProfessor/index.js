@@ -40,25 +40,50 @@ export default function AulasProfessor() {
 
   return (
       <SafeAreaView style={{flex: 1, marginTop: StatusBar.currentHeight}}>
-        {listaDadosHistorico.length > 0 ? <HistoricoAulasPage profAula={true} lista={listaDadosHistorico} isAluno={false}></HistoricoAulasPage> : <NenhumaAulaPage></NenhumaAulaPage>}
+        {listaDadosHistorico.length > 0 ? <HistoricoAulasPage funcaoVoltar={voltar} funcaoAtualizar={atualizar} profAula={true} lista={listaDadosHistorico} isAluno={false}></HistoricoAulasPage> : <NenhumaAulaPage></NenhumaAulaPage>}
       </SafeAreaView>
   )
 
   function tratamentoExibicao(retorno){
     var listaTratadaExibicao = []
-    
+
     if(retorno){
       retorno.forEach(function(umItem){
+        var dataIni = null;
+        var dataFin = null;
+        var dataAtual = null;
+        if(umItem.dataHoraInicio && umItem.dataHoraFim){
+          dataIni = new Date(umItem.dataHoraInicio);
+          dataFin = new Date(umItem.dataHoraFim);
+        }
+        dataAtual = new Date();
+        const temAulaAtual = dataIni && dataFin && dataAtual && dataAtual > dataIni && dataAtual < dataFin;
+
+        console.log(umItem)
         var item = {
+          codigo: umItem.codigo,
           disciplina: umItem.disciplina ? umItem.disciplina.nome : " - ",
-          horario: " - ",
-          data: umItem.dataHoraInicio,
+          horario: dataIni && dataFin ? dataIni.toLocaleTimeString()+" - "+dataFin.toLocaleTimeString() : " - ",
+          data: dataIni && dataFin && dataIni ? dataIni.getDate()+"/"+(dataIni.getMonth()+1)+"/"+dataIni.getFullYear(): " - ",
           professor: umItem.usuario ? umItem.usuario.nome : " - ",
-          turma: umItem.turma ? umItem.turma.nome : " - "
+          turma: umItem.turma ? umItem.turma.nome : " - ",
+          temAulaAgora: temAulaAtual
         }
         listaTratadaExibicao.push(item)
       });
     }
     return listaTratadaExibicao;
   }
+
+  function voltar(){
+    SecureStore.setItemAsync(SecurityConstants.USUARIO_COD, null);
+    SecureStore.setItemAsync(SecurityConstants.TOKEN_ACESSO, null);
+    SecureStore.setItemAsync(SecurityConstants.TIPO_USUARIO, null);
+    navigateToLogin();
+  }
+
+  function atualizar(){
+    buscaDados()
+  }
+
 }

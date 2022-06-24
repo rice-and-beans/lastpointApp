@@ -7,7 +7,7 @@ export default function BtnRefresh(props) {
   return (
     <TouchableOpacity 
         style={styles.container}
-        onPress={() => console.log('')}
+        onPress={props.funcaoAtualizar}
       >
         <Image 
             source={refreshingIcone} 

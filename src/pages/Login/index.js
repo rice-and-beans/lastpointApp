@@ -54,9 +54,12 @@ export default function Login() {
   }
 
   async function carregaInicial(){
-    const token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
-    const tipo = await SecureStore.getItemAsync(SecurityConstants.TIPO_USUARIO);
-    const usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
+    var token = null;
+    var tipo = null;
+    var usuarioCod = null;
+    token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
+    tipo = await SecureStore.getItemAsync(SecurityConstants.TIPO_USUARIO);
+    usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
     if(token && tipo && usuarioCod){
       trocarTela(tipo);
     }
@@ -75,7 +78,7 @@ export default function Login() {
   }
 
   function navigateToHistoricoAluno(){
-    navigation.navigate("HistoricoAluno");
+    navigation.navigate("AulasAluno");
   }
 
 }

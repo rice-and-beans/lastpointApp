@@ -19,7 +19,7 @@ export default function HistoricoAulas(props) {
                             Turma: {item.turma}
                         </DescricaoBranca>
                         {
-                            props.icone ? <Image style={styles.icone} source={props.icone} /> : <View></View>
+                            props.icone && item.temAulaAgora ? <Image style={styles.icone} source={props.icone} /> : <View></View>
                         }
                     </ViewVerdeArredondada>
             } keyExtractor={(item)=>item.id}/>

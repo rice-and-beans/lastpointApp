@@ -5,7 +5,7 @@ export default function BtnIcone(props) {
   return (
     <TouchableOpacity 
         style={styles.container}
-        onPress={() => console.log('')}
+        onPress={props.funcaoBtnIcone}
       >
         <Image 
           style={styles.IconeBotao}

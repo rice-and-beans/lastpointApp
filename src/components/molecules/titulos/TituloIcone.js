@@ -13,7 +13,7 @@ export default function TituloIcone(props) {
                     props.icone ? <BtnIcone iconeBotao={props.icone} /> : null
                 }
                 {
-                    props.btnIcone ? <BtnIcone iconeBotao={props.btnIcone} /> : null
+                    props.btnIcone ? <BtnIcone  funcaoBtnIcone={props.funcaoBtnIcone} iconeBotao={props.btnIcone} /> : null
                 }
             </View>
         </View>
