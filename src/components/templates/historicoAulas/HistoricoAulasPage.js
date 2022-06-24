@@ -16,7 +16,7 @@ export default function HistoricoAulasPage(props) {
       <View>
         <AppBar funcaoVoltar={props.funcaoVoltar} funcaoAtualizar={props.funcaoAtualizar}/>
         <TituloIcone funcaoBtnIcone={props.funcaoBtnIcone} btnIcone={props.isExibeScanner ? qrcodeIconeVerde: null} titulo='Histórico de Aulas'/>
-        <HistoricoAulas dados={props.lista} icone={props.isAluno ? icone : props.profAula ? qrCode : null}/>
+        <HistoricoAulas funcaoIconeAula={props.funcaoIconeAula} dados={props.lista} icone={props.isAluno ? icone : props.profAula ? qrCode : null}/>
       </View>
   )
 }

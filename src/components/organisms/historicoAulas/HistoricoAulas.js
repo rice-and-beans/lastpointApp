@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 import ViewVerdeArredondada from '../../atoms/view/ViewVerdeArredondada'
-import { FlatList } from 'react-native'
+import { FlatList, TouchableOpacity } from 'react-native'
 import DescricaoBranca from '../../atoms/text/historico/DescricaoBranca'
 
 export default function HistoricoAulas(props) {
@@ -18,9 +18,11 @@ export default function HistoricoAulas(props) {
                             Professor: {item.professor}{"\n"}
                             Turma: {item.turma}
                         </DescricaoBranca>
-                        {
-                            props.icone && item.temAulaAgora ? <Image style={styles.icone} source={props.icone} /> : <View></View>
-                        }
+                        <TouchableOpacity onPress={() => props.funcaoIconeAula(item.codigo)}>
+                            {
+                                props.icone && item.temAulaAgora ? <Image style={styles.icone} source={props.icone} /> : <View></View>
+                            }
+                        </TouchableOpacity>
                     </ViewVerdeArredondada>
             } keyExtractor={(item)=>item.id}/>
         </View>

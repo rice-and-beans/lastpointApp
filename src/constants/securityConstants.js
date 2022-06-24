@@ -12,4 +12,8 @@ export class SecurityConstants {
         return "USUARIO_COD";
     }
 
+    static get AULA_COD() {
+        return "AULA_COD";
+    }
+
 }

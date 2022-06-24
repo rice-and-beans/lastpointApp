@@ -40,9 +40,20 @@ export default function AulasProfessor() {
 
   return (
       <SafeAreaView style={{flex: 1, marginTop: StatusBar.currentHeight}}>
-        {listaDadosHistorico.length > 0 ? <HistoricoAulasPage funcaoVoltar={voltar} funcaoAtualizar={atualizar} profAula={true} lista={listaDadosHistorico} isAluno={false}></HistoricoAulasPage> : <NenhumaAulaPage></NenhumaAulaPage>}
+        {listaDadosHistorico.length > 0 ? <HistoricoAulasPage funcaoIconeAula={funcaoIconeAula}
+                                                              funcaoVoltar={voltar} 
+                                                              funcaoAtualizar={atualizar} 
+                                                              profAula={true} 
+                                                              lista={listaDadosHistorico} 
+                                                              isAluno={false}>
+                                          </HistoricoAulasPage> : <NenhumaAulaPage></NenhumaAulaPage>}
       </SafeAreaView>
   )
+
+  async function funcaoIconeAula(aula){
+      await SecureStore.setItemAsync(SecurityConstants.AULA_COD, aula);
+      navigation.navigate("VisualizacaoQrCode");
+  }
 
   function tratamentoExibicao(retorno){
     var listaTratadaExibicao = []
@@ -52,6 +63,7 @@ export default function AulasProfessor() {
         var dataIni = null;
         var dataFin = null;
         var dataAtual = null;
+
         if(umItem.dataHoraInicio && umItem.dataHoraFim){
           dataIni = new Date(umItem.dataHoraInicio);
           dataFin = new Date(umItem.dataHoraFim);

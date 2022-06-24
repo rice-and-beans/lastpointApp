@@ -10,7 +10,7 @@ export default function ExibirQRCode(props) {
 
     return (
         <View>
-            <AppBar/>
+            <AppBar funcaoVoltar={props.funcaoVoltar} funcaoAtualizar={props.funcaoAtualizar}/>
             <DescricaoPreta>Escaneie o QRcode</DescricaoPreta>
             <View style={styles.coiso}>
                 <Image style={styles.imagem} source={celularIcone} />
