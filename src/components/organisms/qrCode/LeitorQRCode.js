@@ -7,93 +7,107 @@ import { SecurityConstants } from '../../../constants/securityConstants';
 import * as SecureStore from 'expo-secure-store';
 import { RealizaChamadaQrCodeController } from '../../../controllers/ScannerQrCode/realizaChamadaQrCodeController';
 
-const finderWidth = 300
-const finderHeight = 300
+const localizadorLargura = 300
+const localizadorAltura = 300
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
-const viewMinX = (width - finderWidth) / 2
-const viewMinY = (height - finderHeight) / 2
+const telaMinX = (width - localizadorLargura) / 2
+const telaMinY = (height - localizadorAltura) / 2
 
 export default function LeitorQRCode(props) {
 
   const realizaChamadaQrCodeController = new RealizaChamadaQrCodeController();
-  const [hasPermission, setHasPermission] = useState(null)
-  const [type, setType] = useState(BarCodeScanner.Constants.Type.back)
+  const [temPermissao, setTemPermissao] = useState(null)
+  const [tipo, setTipo] = useState(BarCodeScanner.Constants.Type.back)
   const [scanned, setScanned] = useState(false)
 
-  useEffect(() => {
-    (async () => {
+  useEffect(() => {(
+    async () => {
       const {status} = await BarCodeScanner.requestPermissionsAsync()
-      setHasPermission(status === 'granted')
+      setTemPermissao(status === 'granted')
     })()
   }, [])
+
+  function navigateToLogin(){
+    navigation.navigate("Login");
+  }
   
-    const handleBarCodeScanned = async (scanningResult) =>  {
-      if (!scanned) {
-        const {type, data, bounds: {origin} = {}} = scanningResult
-        const {x, y} = origin
-        if (x >= viewMinX && y >= viewMinY && x <= (viewMinX + finderWidth / 2) && y <= (viewMinY + finderHeight / 2)) {
-          setScanned(true)
-          await realizarChamada(data);
-        }
+  const tratamentoBarCodeScanned = async (resultadoScanner) =>  {
+    if (!scanned) {
+      const {
+        tipo, 
+        data, 
+        bounds: {origin} = {}
+      } = resultadoScanner
+
+      const {x, y} = origin
+      if (x >= telaMinX && y >= telaMinY && x <= (telaMinX + localizadorLargura / 2) && y <= (telaMinY + localizadorAltura / 2)) {
+        setScanned(true)
+        await realizarChamada(data);
       }
-    };
-
-    if (hasPermission === null) {
-      return <Text>Requesting for camera permission</Text>;
     }
-    if (hasPermission === false) {
-      return <Text>No access to camera</Text>;
-    }
+  };
 
-    function navigateToLogin(){
-      navigation.navigate("Login");
-    }
+  if (temPermissao === null) {
+    return <Text>O app precisa de permissão para acessar a câmera</Text>;
+  }
 
-    async function realizarChamada(data){
-      var usuarioCod = null;
-      usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
-      var token = null;
-      token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
-      if(token){
-        if(data){
-          try {
-            const retorno = await realizaChamadaQrCodeController.execute(token, usuarioCod, data.toString());
-            
-            if(retorno && retorno == 200){
-              Alert.alert('Aviso:', "Chamada realizada!");
-            }else if(retorno){
-              Alert.alert('Aviso:', retorno);
-            }else{
-              Alert.alert('Aviso:', 'Algo deu errado!');
-            }
+  if (temPermissao === false) {
+    return <Text>Sem acesso a câmera</Text>;
+  }
 
-          } catch (error) {
-            Alert.alert('Aviso:',"QrCode inválido!");
+  async function realizarChamada(data){
+    var usuarioCod = null;
+    usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
+    var token = null;
+    token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
+    if(token){
+      if(data){
+        try {
+          const retorno = await realizaChamadaQrCodeController.execute(token, usuarioCod, data.toString());
+          
+          if(retorno && retorno == 200){
+            Alert.alert('Aviso:', "Chamada realizada!");
+          }else if(retorno){
+            Alert.alert('Aviso:', retorno);
+          }else{
+            Alert.alert('Aviso:', 'Algo deu errado!');
           }
-        }else{
+
+        } catch (error) {
           Alert.alert('Aviso:',"QrCode inválido!");
         }
       }else{
-        navigateToLogin();
+        Alert.alert('Aviso:',"QrCode inválido!");
       }
+    }else{
+      navigateToLogin();
     }
+  }
 
-    return (
-      <View >
-        <BarCodeScanner onBarCodeScanned={handleBarCodeScanned}
-          type={type}
-          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-          style={[styles.container]}>
-        
-        <BarcodeMask edgeColor="#41A05E" height={300} width={300} showAnimatedLine/>
-          {scanned && <Button title="Scan Again" color="#41A05E" onPress={() => setScanned(false)}/>}
-        </BarCodeScanner>
-      </View>
-    )
+  return (
+    <View >
+      <BarCodeScanner onBarCodeScanned={tratamentoBarCodeScanned}
+                      type={tipo}
+                      barCodetipos={[
+                        BarCodeScanner.Constants.BarCodeType.qr
+                      ]}
+                      style={[styles.container]}>
+
+      <BarcodeMask edgeColor="#41A05E" 
+                   height={300} 
+                   width={300}
+                   showAnimatedLine/>
+        {scanned && <Button title="Escanear novamente" 
+                            color="#41A05E" 
+                            onPress={() => setScanned(false)}/>}
+      </BarCodeScanner>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -101,13 +115,16 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '91%',
   },
+
   title: {
     fontSize: 20,
     fontWeight: 'bold',
   },
+
   separator: {
     marginVertical: 30,
     height: 1,
     width: '80%',
   }
+  
 })

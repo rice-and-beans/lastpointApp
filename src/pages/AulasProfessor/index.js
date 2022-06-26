@@ -14,19 +14,6 @@ export default function AulasProfessor() {
   const aulasFuturasProfessorController = new AulasFuturasProfessorController();
   const navigation = useNavigation();
 
-  async function buscaDados(){
-    const usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
-    const token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
-    var listaTratadaExibicao = [];
-    if(token){
-      const retorno = await aulasFuturasProfessorController.buscaAulasFuturasProfessorController(token, usuarioCod);
-      listaTratadaExibicao = tratamentoExibicao(retorno);
-    }else{
-      navigateToLogin();
-    }
-    setListaDadosHistorico(listaTratadaExibicao);
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       await buscaDados();
@@ -45,14 +32,43 @@ export default function AulasProfessor() {
                                                               funcaoAtualizar={atualizar} 
                                                               profAula={true} 
                                                               lista={listaDadosHistorico} 
-                                                              isAluno={false}>
-                                          </HistoricoAulasPage> : <NenhumaAulaPage></NenhumaAulaPage>}
+                                                              isAluno={false}
+                                                              tituloHisto={false}>
+                                          </HistoricoAulasPage> 
+                                          : 
+                                          <NenhumaAulaPage funcaoVoltar={voltar} 
+                                                           funcaoAtualizar={atualizar}>
+                                          </NenhumaAulaPage>}
       </SafeAreaView>
   )
 
+  async function voltar(){
+    await SecureStore.setItemAsync(SecurityConstants.USUARIO_COD, '');
+    await SecureStore.setItemAsync(SecurityConstants.TOKEN_ACESSO, '');
+    await SecureStore.setItemAsync(SecurityConstants.TIPO_USUARIO, '');
+    navigateToLogin();
+  }
+
+  async function atualizar(){
+    await buscaDados();
+  }
+
   async function funcaoIconeAula(aula){
-      await SecureStore.setItemAsync(SecurityConstants.AULA_COD, aula);
-      navigation.navigate("VisualizacaoQrCode");
+    await SecureStore.setItemAsync(SecurityConstants.AULA_COD, aula);
+    navigation.navigate("VisualizacaoQrCode");
+  }
+
+  async function buscaDados(){
+    const usuarioCod = await SecureStore.getItemAsync(SecurityConstants.USUARIO_COD);
+    const token = await SecureStore.getItemAsync(SecurityConstants.TOKEN_ACESSO);
+    var listaTratadaExibicao = [];
+    if(token){
+      const retorno = await aulasFuturasProfessorController.buscaAulasFuturasProfessorController(token, usuarioCod);
+      listaTratadaExibicao = tratamentoExibicao(retorno);
+    }else{
+      navigateToLogin();
+    }
+    setListaDadosHistorico(listaTratadaExibicao);
   }
 
   function tratamentoExibicao(retorno){
@@ -84,17 +100,6 @@ export default function AulasProfessor() {
       });
     }
     return listaTratadaExibicao;
-  }
-
-  function voltar(){
-    SecureStore.setItemAsync(SecurityConstants.USUARIO_COD, null);
-    SecureStore.setItemAsync(SecurityConstants.TOKEN_ACESSO, null);
-    SecureStore.setItemAsync(SecurityConstants.TIPO_USUARIO, null);
-    navigateToLogin();
-  }
-
-  function atualizar(){
-    buscaDados()
   }
 
 }

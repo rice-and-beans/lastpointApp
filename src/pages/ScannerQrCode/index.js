@@ -2,11 +2,8 @@ import React from 'react'
 import { SafeAreaView, StatusBar } from 'react-native';
 import ScannerQrCodePage from '../../components/templates/qrCode/ScannerQrCode';
 import { useNavigation } from '@react-navigation/native';
-import { RealizaChamadaQrCodeController } from '../../controllers/ScannerQrCode/realizaChamadaQrCodeController';
 
 export default function ScannerQrCode() {
-
-  const realizaChamadaQrCodeController = new RealizaChamadaQrCodeController();
 
   const navigation = useNavigation();
   function navigateToHistoricoAluno(){

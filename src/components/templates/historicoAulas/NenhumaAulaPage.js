@@ -6,7 +6,7 @@ import AppBar from '../../molecules/appBar/AppBar'
 export default function NenhumaAulaPage(props) {
   return (
     <View style={styles.container}>
-      <AppBar/>
+      <AppBar funcaoVoltar={props.funcaoVoltar} funcaoAtualizar={props.funcaoAtualizar}/>
       <TituloIcone titulo='Próximas aulas'/>
       <View style={styles.containerMeio}>
         <TituloIcone titulo='Nenhuma'/>
