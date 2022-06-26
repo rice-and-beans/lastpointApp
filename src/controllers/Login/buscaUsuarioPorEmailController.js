@@ -15,7 +15,6 @@ export class BuscarUsuarioPorEmailController {
                 return null;
             }
         }).catch((err) => {
-            console.error(err)
             if(err.message && err.message.includes(MensagensConstants.MGS_SERVICO_INDISPONIVEL_AUTH)){
                 throw new Error("Serviço indisponível: AuthApi");
             }else{
