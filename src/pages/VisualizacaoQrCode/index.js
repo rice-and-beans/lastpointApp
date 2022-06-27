@@ -10,7 +10,7 @@ import * as SecureStore from 'expo-secure-store';
 export default function VisualizacaoQrCode() {
 
   const geraQrcodeAulaController = new GeraQrcodeAulaController();
-  const [imagem, setImagem] = useState('');
+  const [codigoQrcode, setCodigoQrcode] = useState('');
   const navigation = useNavigation();
 
   async function gerarQrCode(){
@@ -20,7 +20,7 @@ export default function VisualizacaoQrCode() {
     if(token){
       const retorno = await geraQrcodeAulaController.execute(token, usuarioCod, aulaCod);
       if(retorno){
-        setImagem(retorno);
+        setCodigoQrcode(aulaCod+usuarioCod);
       }else{
         Alert.alert('Aviso:', "Não foi possível gerar o QrCode da aula atual!");
       }
@@ -48,7 +48,7 @@ export default function VisualizacaoQrCode() {
       <SafeAreaView style={{flex: 1, marginTop: StatusBar.currentHeight}}>
         <ExibirQRCodePage funcaoVoltar={voltar} 
                           funcaoAtualizar={atualizar}
-                          imagemQrCode={imagem}>
+                          codigoQrcode={codigoQrcode}>
         </ExibirQRCodePage>
       </SafeAreaView>
   )
