@@ -11,6 +11,7 @@ export default function VisualizacaoQrCode() {
 
   const geraQrcodeAulaController = new GeraQrcodeAulaController();
   const [codigoQrcode, setCodigoQrcode] = useState('');
+  const [aulaCod, setAulaCod] = useState('');
   const navigation = useNavigation();
 
   async function gerarQrCode(){
@@ -21,6 +22,7 @@ export default function VisualizacaoQrCode() {
       const retorno = await geraQrcodeAulaController.execute(token, usuarioCod, aulaCod);
       if(retorno){
         setCodigoQrcode(aulaCod+usuarioCod);
+        setAulaCod(aulaCod);
       }else{
         Alert.alert('Aviso:', "Não foi possível gerar o QrCode da aula atual!");
       }
@@ -48,7 +50,8 @@ export default function VisualizacaoQrCode() {
       <SafeAreaView style={{flex: 1, marginTop: StatusBar.currentHeight}}>
         <ExibirQRCodePage funcaoVoltar={voltar} 
                           funcaoAtualizar={atualizar}
-                          codigoQrcode={codigoQrcode}>
+                          codigoQrcode={codigoQrcode}
+                          aulaCod={aulaCod}>
         </ExibirQRCodePage>
       </SafeAreaView>
   )

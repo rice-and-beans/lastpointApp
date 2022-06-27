@@ -14,7 +14,7 @@ export default function ExibirQRCode(props) {
             <View style={styles.visualizador}>
                 <Image style={styles.imagemQrcode} source={require("../../../uploads/qrcode.png")} />
             </View>
-            <TituloPreto style={{textAlign:'center'}}>Informática</TituloPreto>
+            <TituloPreto style={{textAlign:'center'}}>{props.aulaCod}</TituloPreto>
         </View>
     )
 }
